@@ -4,8 +4,9 @@
 [![Build Status](https://img.shields.io/badge/C-100%25-green)](https://travis-ci.org/joemccann/dillinger) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Build Status](https://img.shields.io/badge/commit%20activity-1weeks-blue)](https://travis-ci.org/joemccann/dillinger) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
 
-This is "STOP WATCH" project using ATmega16 and used 3 push buttons for reset, pause, and resume; interfaced with 6 multiplexed 7-segment displays
-
+This is "STOP WATCH" project using ATmega16 and used TIMER1 in CTC mode and six 7-segment displays to display seconds,
+minutes and hours, the stopwatch supported those features: pause, resume and reset through push
+buttons that trigger interrupts.
 
 
 ## Components Used
