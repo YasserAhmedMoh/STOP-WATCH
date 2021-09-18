@@ -10,7 +10,7 @@
 #define SET_BIT(reg,pin) reg|=(1<<pin)
 #define CLEAR_BIT(reg,pin) reg&=~(1<<pin)
 #define TOGGLE_BIT(reg,pin) reg^=(1<<pin)
-
+unsigned char sec_tick, min_tick , h_tick ;
 
 
 void init_pin()
@@ -78,4 +78,39 @@ void timer_config()
 }
 
 
+ISR(INT0_vect)
+{
+	TCNT1=0;
+	sec_tick=min_tick=h_tick=0;
+}
+ISR(INT1_vect)
+{
+	// clear cs10,sc11,sc12 TO STOP CLOCK
+	CLEAR_BIT(TCCR1B,CS10);
+	CLEAR_BIT(TCCR1B,CS11);
+	CLEAR_BIT(TCCR1B,CS12);
+}
+ISR(INT2_vect)
+{
+	 SET_BIT(TCCR1B,CS10);
+	 SET_BIT(TCCR1B,CS12);
+}
+ISR(TIMER1_COMPA_vect)
+{
+	sec_tick++;
+	if(sec_tick==60)
+	{
+		sec_tick=0;
+		min_tick++;
+		if(min_tick==60)
+		{
+			min_tick=0;
+			h_tick++;
+			if(h_tick==24)
+			{
+				h_tick=0;
+			}
+		}
+	}
+}
 
