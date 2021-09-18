@@ -9,43 +9,8 @@
 #include<avr/interrupt.h>
 #include<util/delay.h>
 #include"init_and_config.h"
-unsigned char sec_tick=0 , min_tick=0 , h_tick=0 ;
-//unsigned char sec_tick=0 , min_tick=0 , h_tick=0 ;
-ISR(INT0_vect)
-{
-	TCNT1=0;
-	sec_tick=min_tick=h_tick=0;
-}
-ISR(INT1_vect)
-{
-	// clear cs10,sc11,sc12 TO STOP CLOCK
-	CLEAR_BIT(TCCR1B,CS10);
-	CLEAR_BIT(TCCR1B,CS11);
-	CLEAR_BIT(TCCR1B,CS12);
-}
-ISR(INT2_vect)
-{
-	 SET_BIT(TCCR1B,CS10);
-	 SET_BIT(TCCR1B,CS12);
-}
-ISR(TIMER1_COMPA_vect)
-{
-	sec_tick++;
-	if(sec_tick==60)
-	{
-		sec_tick=0;
-		min_tick++;
-		if(min_tick==60)
-		{
-			min_tick=0;
-			h_tick++;
-			if(h_tick==24)
-			{
-				h_tick=0;
-			}
-		}
-	}
-}
+extern unsigned char sec_tick=0 , min_tick=0 , h_tick=0 ;
+
 
 
 int main(void)
