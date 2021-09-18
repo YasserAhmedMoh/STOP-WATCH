@@ -18,7 +18,7 @@ buttons that trigger interrupts.
 
 
 
-| ATmega 16/32 | 7-Segment connon anode | 7447 decoder |
+| ATmega 16/32 | 7-Segment common anode | 7447 decoder |
 | ------ | ------ | ------ |
 | ![](https://www.electronicwings.com/public/images/user_images/images/ATmega_20160622/ATmega_GPIO/ATmega16_GPIO_Ports_and_Registers-Icon.png) | ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEpzDF7_ZLKupq22PoNwgsEBgsrzxWHOi89g&usqp=CAU ) |![](https://cf5.s3.souqcdn.com/item/2018/12/08/42/42/53/93/item_L_42425393_aa347a513892b.jpg ) |
 
